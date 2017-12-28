@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="JournalHeaderView" id="iN0-l3-epB" customClass="JournalHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAT-yV-8fw">
+                    <rect key="frame" x="16" y="26" width="343" height="41"/>
+                    <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="s1g-n4-HPZ"/>
+                    </constraints>
+                    <state key="normal" title="选择项目">
+                        <color key="titleColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="typeClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="fwY-L4-TGW"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目:深圳博物馆" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2u-0P-cy6">
+                    <rect key="frame" x="16" y="87" width="343" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="8MQ-3c-goA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间:2017年9月17号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrF-6e-NiR">
+                    <rect key="frame" x="16" y="121" width="343" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="vcN-kp-1PB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="CAT-yV-8fw" secondAttribute="trailing" constant="16" id="6vw-KY-1da"/>
+                <constraint firstItem="T2u-0P-cy6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="DVV-bZ-UAi"/>
+                <constraint firstItem="HrF-6e-NiR" firstAttribute="top" secondItem="T2u-0P-cy6" secondAttribute="bottom" constant="8" id="Esl-n5-im4"/>
+                <constraint firstItem="T2u-0P-cy6" firstAttribute="top" secondItem="CAT-yV-8fw" secondAttribute="bottom" constant="20" id="Gdk-jE-EOc"/>
+                <constraint firstItem="CAT-yV-8fw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="Ti4-Mh-EwP"/>
+                <constraint firstItem="CAT-yV-8fw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="aNv-O0-zJ3"/>
+                <constraint firstItem="HrF-6e-NiR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="kcG-aJ-viv"/>
+                <constraint firstAttribute="trailing" secondItem="T2u-0P-cy6" secondAttribute="trailing" constant="16" id="kdL-ej-E5K"/>
+                <constraint firstAttribute="trailing" secondItem="HrF-6e-NiR" secondAttribute="trailing" constant="16" id="tFq-iW-ayv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="projectLabel" destination="T2u-0P-cy6" id="cKl-zE-6lI"/>
+                <outlet property="timeLabel" destination="HrF-6e-NiR" id="Un4-GK-Flh"/>
+                <outlet property="typeBtn" destination="CAT-yV-8fw" id="jvq-0B-bSR"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="-153.5"/>
+        </view>
+    </objects>
+</document>

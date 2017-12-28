@@ -1,0 +1,104 @@
+//
+//  HTMokaHeader.h
+//  HTMoka
+//
+//  Created by SZHuaTo on 2017/11/28.
+//  Copyright © 2017年 深圳华图测控. All rights reserved.
+//
+
+
+#ifndef PrefixHeader_h
+#define PrefixHeader_h
+
+/*类别*/
+#import "NSString+ljt.h"
+#import "NSMutableDictionary+JSON.h"
+
+
+#import "HXPhotoView.h"
+#import "HXPhotoPicker.h"
+//#import "HXPhotoViewController.h"
+#import "HexColor.h"
+#import "ZYPinYinSearch.h"
+#import "HCSortString.h"
+#import "YYCache.h"
+#import <AFNetworking.h>
+#import "LLBUserLoginInfo.h"
+#import "MJExtension.h"
+#import "SPSVProgressHUD.h"
+#import "NetworkManager.h"
+#import "NetworkUrl.h"
+#import "SPBaseModel.h"
+//域名
+#define portUrl @"http://192.168.10.52:8019"
+
+// 1.屏幕大小尺
+#define screen_width [UIScreen mainScreen].bounds.size.width
+#define screen_height [UIScreen mainScreen].bounds.size.height
+#define Is_Iphone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define Is_Iphone_X (Is_Iphone && screen_height == 812.0)
+#define NaviHeight Is_Iphone_X ? 88 : 64
+#define TabbarHeight Is_Iphone_X ? 83 : 49
+#define BottomHeight Is_Iphone_X ? 34 : 0
+#define W_UNIT [LLBUserInfo.W_Rate doubleValue]
+#define H_UNIT [LLBUserInfo.H_Rate doubleValue]
+#define statusbar_height [[UIApplication sharedApplication] statusBarFrame].size.height
+#define isIOS(a) [[[UIDevice currentDevice]systemVersion] floatValue] == a
+#define MyLog(...) NSLog(__VA_ARGS__)
+
+//2. 颜色
+#define LJTColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define SPMainColor [UIColor colorWithHexString:@"378efa"]//主色调
+#define  SPViewBackColor [UIColor colorWithHexString:@"fcfbfb"]//背景色调
+#define SPLineColor [UIColor colorWithHexString:@"e7e7e7"]//线色调
+
+//3.常用的对象
+#define LLBNotificationCenter [NSNotificationCenter defaultCenter]
+#define LLBUserDefaults [NSUserDefaults standardUserDefaults]
+#define XZNetStatus [[NetworkMonitoring shareInstance] isReachability]
+#define LLBLjtSocket [LJTSocket sharedLJTSocket]
+#define LLBUserInfo  [LLBUserLoginInfo sharedLLBUserLoginInfo]
+#define LLBMainBundle [NSBundle mainBundle]
+#define LLBDateTool_obj [LLBDateTool new]
+#define LLBEncoding  CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)
+
+
+//weak , strong
+#ifndef weakify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+#endif
+#endif
+#endif
+
+#ifndef strongify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+#else
+#define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+#else
+#define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+#endif
+#endif
+#endif
+
+
+#define NS_ENUM(...) CF_ENUM(__VA_ARGS__)
+#define NS_OPTIONS(_type, _name) CF_OPTIONS(_type, _name)
+
+#endif /* PrefixHeader_h */
+
